@@ -25,6 +25,15 @@
                           <td>{{$project['title']}}</td>
                           <td>{{$project['content']}}</td>
                           <td>{{$project['slug']}}</td>
+                          <td>
+                            <div>
+                              <form action="{{route('admin.projects.destroy', ['project' => $project['slug']])}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input class="btn btn-danger" type="submit" name="" id="" value="cancella">
+                              </form>
+                            </div>
+                          </td>
                         </tr>
                         @endforeach
                     </tbody>
