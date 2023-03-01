@@ -16,25 +16,29 @@
                         <th scope="col">title</th>
                         <th scope="col">content</th>
                         <th scope="col">slug</th>
+                        <th scope="col">actions</th>
                       </tr>
                     </thead>
                     <tbody>
                         @foreach ($projects as $project)
-                        <tr>
-                          <th>{{$project['id']}}</th>
-                          <td>{{$project['title']}}</td>
-                          <td>{{$project['content']}}</td>
-                          <td>{{$project['slug']}}</td>
-                          <td>
-                            <div>
-                              <form action="{{route('admin.projects.destroy', ['project' => $project['slug']])}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <input class="btn btn-danger" type="submit" name="" id="" value="cancella">
-                              </form>
-                            </div>
-                          </td>
-                        </tr>
+                          <tr>
+                            <th>{{$project['id']}}</th>
+                            <td>{{$project['title']}}</td>
+                            <td>{{$project['content']}}</td>
+                            <td>{{$project['slug']}}</td>
+                            <td>
+                              <div class="d-flex gap-3">
+                                <form action="{{route('admin.projects.destroy', ['project' => $project['slug']])}}" method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                  <input class="btn btn-danger" type="submit" name="" id="" value="delete">
+                                </form>
+                                <a href="{{ route('admin.projects.show',['project' => $project['slug']]) }}">
+                                  <button type="button" class="btn btn-primary">view</button>
+                                </a>
+                              </div>
+                            </td>
+                          </tr>
                         @endforeach
                     </tbody>
                   </table>
