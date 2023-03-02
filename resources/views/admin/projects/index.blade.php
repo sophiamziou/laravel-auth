@@ -20,7 +20,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($projects as $project)
+                        @forelse ($projects as $project)
                           <tr>
                             <th>{{$project['id']}}</th>
                             <td>{{$project['title']}}</td>
@@ -31,7 +31,7 @@
                                 <form action="{{route('admin.projects.destroy', ['project' => $project['slug']])}}" method="POST">
                                   @csrf
                                   @method('DELETE')
-                                  <input class="btn btn-danger" type="submit" name="" id="" value="delete">
+                                  <input class="btn btn-danger confirm-delete-button" type="submit" name="" id="" value="delete">
                                 </form>
                                 <a href="{{ route('admin.projects.show',['project' => $project['slug']]) }}">
                                   <button type="button" class="btn btn-primary">view</button>
@@ -39,7 +39,19 @@
                               </div>
                             </td>
                           </tr>
-                        @endforeach
+                          @empty
+                          <div class="container">
+                              <div class="row justify-content-center mt-5">
+                                  <div class="col-lg-8 col-md-10 col-sm-12">
+                                      <div class="alert alert-primary text-center" role="alert">
+                                          <h4 class="alert-heading mb-4">Il database dei tuoi Movies è vuoto</h4>
+                                          <p class="lead">Clicca sul pulsante "Aggiungi Movies" per aggiungerli.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                        @endforelse
+                        @include ('admin.partials.modals')
                     </tbody>
                   </table>
             </div>
