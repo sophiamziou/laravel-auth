@@ -44,8 +44,8 @@
                               <div class="row justify-content-center mt-5">
                                   <div class="col-lg-8 col-md-10 col-sm-12">
                                       <div class="alert alert-primary text-center" role="alert">
-                                          <h4 class="alert-heading mb-4">Il database dei tuoi Movies è vuoto</h4>
-                                          <p class="lead">Clicca sul pulsante "Aggiungi Movies" per aggiungerli.</p>
+                                          <h4 class="alert-heading mb-4">Il database dei tuoi Progetti è vuoto</h4>
+                                          <p class="lead">Clicca sul pulsante "Aggiungi Progetti" per aggiungerli.</p>
                                       </div>
                                   </div>
                               </div>
